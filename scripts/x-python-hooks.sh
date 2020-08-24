@@ -1,5 +1,18 @@
 #!/usr/bin/env bash
 
+script=$(basename "$0")
+
+echo "running ${script}"
+
+if [[ ! -f ".pre-commit-config.yaml" ]];then
+    echo "found .pre-commit-config.yaml ..."
+    pre-commit autoupdate
+    pre-commit run --all-files
+    exit $?
+fi
+
+echo "no config found ... creating .pre-commit-config.yaml"
+
 cat > .pre-commit-config.yaml << EOF
 ---
 repos:
@@ -41,10 +54,9 @@ repos:
       - id: flake8
       - id: isort
       - id: shellcheck
-      - id: yamllint
       - id: commitlint
       - id: markdownlint
-      - id: shellcheck
+      - id: yamllint
       - id: checkyml
 
 EOF
