@@ -1,0 +1,122 @@
+---
+- id: go-fmt
+  name: go fmt
+  entry: hook-go-fmt.sh
+  files: "\\.go$"
+  language: script
+  description: "Runs `gofmt`, requires golang"
+- id: goimports
+  name: goimports
+  entry: hook-goimports.sh
+  files: "\\.go$"
+  language: script
+  description: "Runs `goimports`, requires golang"
+- id: go-vet
+  name: go vet
+  entry: hook-go-vet.sh
+  files: ""
+  pass_filenames: false
+  language: script
+  description: "Runs `go vet`, requires golang"
+- id: golint
+  name: golint
+  entry: hook-golint.sh
+  files: "\\.go$"
+  language: script
+  description: "Runs `golint`, requires https://github.com/golang/lint"
+- id: gocyclo
+  name: gocyclo
+  entry: hook-gocyclo.sh
+  files: "\\.go$"
+  language: script
+  description: "Runs `gocyclo`, requires github.com/fzipp/gocyclo"
+  args:
+    - "-over=15"
+- id: golangci-lint
+  name: golangci-lint
+  entry: hook-golangci-lint.sh
+  types:
+    - go
+  language: script
+  pass_filenames: false
+  description: "Runs `golangci-lint`,requires github.com/golangci/golangci-lint"
+- id: golangci-megalint
+  name: golangci-megalint
+  entry: hook-golangci-megalint.sh
+  types:
+    - go
+  language: script
+  pass_filenames: false
+  description: "Runs `golangci-lint` with all flags"
+- id: gocritic
+  name: gocritic
+  entry: hook-gocritic.sh
+  files: "\\.go$"
+  language: script
+  description: "Runs `go-critic`, requires github.com/go-critic/go-critic"
+- id: go-unit-tests
+  name: go-unit-tests
+  entry: hook-go-unit-tests.sh
+  files: "\\.go$"
+  language: script
+  description: "Runs `go test`"
+- id: go-build
+  name: go-build
+  entry: hook-go-build.sh
+  files: "\\.go$"
+  language: script
+  description: "Runs `go build`, requires golang"
+- id: shellcheck
+  name: shellcheck
+  entry: hook-shellcheck.sh
+  files: "\\.sh$"
+  language: script
+  description: "Runs `shellcheck` -e SC2086 -e SC2016 $@, requires shellcheck"
+- id: commitlint
+  name: commitlint
+  entry: hook-commitlint.sh
+  files: ""
+  language: script
+  description: "Runs `commitlint` -f HEAD, requires commitlint"
+- id: yamllint
+  name: yamllint
+  entry: hook-yamllint.sh
+  files: "\\.yaml$"
+  language: script
+  description: "Runs `yamllint` -s @, requires yamllint"
+- id: markdownlint
+  name: markdownlint
+  entry: hook-markdownlint.sh
+  files: "\\.md$"
+  language: script
+  description: "Runs `markdownlint` --fix @, requires markdownlintcli"
+- id: black
+  name: black
+  entry: hook-black.sh
+  files: "\\.py$"
+  language: script
+  description: "Runs `black` --line-length=120 @, requires black"
+- id: isort
+  name: isort
+  entry: hook-isort.sh
+  files: "\\.py$"
+  language: script
+  description: "Runs `isort` --atomic --apply --recursive  @, requires isort"
+- id: flake8
+  name: flake8
+  entry: hook-flake8.sh
+  files: "\\.py$"
+  language: script
+  description: "Runs `flake8` --max-line-length=120 @, requires flake8"
+- id: hadolint
+  name: hadolint
+  entry: hook-hadolint.sh
+  files: Dockerfile.*
+  language: script
+  description: "Runs `hadolint` @,requires https://github.com/hadolint/hadolint"
+- id: checkyml
+  name: checkyml
+  entry: hook-checkyml.sh
+  files: "\\.yml$"
+  language: script
+  description: Checks for files with the .yml extension

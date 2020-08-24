@@ -1,0 +1,39 @@
+---
+repos:
+  - repo: "https://github.com/pre-commit/pre-commit-hooks"
+    rev: v2.3.0
+    hooks:
+      - id: check-merge-conflict
+      - id: check-yaml
+      - id: check-json
+      - id: check-xml
+      - id: check-symlinks
+      - id: check-added-large-files
+      - id: check-executables-have-shebangs
+      - id: check-byte-order-marker
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: mixed-line-ending
+      - id: detect-private-key
+  - repo: "https://github.com/xbcsmith/x-commit-polaris"
+    rev: master
+    hooks:
+      - id: go-fmt
+      - id: go-vet
+      - id: golint
+      - id: goimports
+      - id: gocyclo
+        args:
+          - "-over=15"
+      - id: golangci-lint
+      - id: golangci-megalint
+      - id: gocritic
+      - id: go-unit-tests
+      - id: no-go-testing
+      - id: hadolint
+      - id: shellcheck
+      - id: yamllint
+      - id: commitlint
+      - id: markdownlint
+      - id: shellcheck
+      - id: checkyml
