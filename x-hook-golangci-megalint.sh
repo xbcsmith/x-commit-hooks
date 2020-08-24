@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 
-golangci-lint run --fix --no-config --deadline=5m --timeout=30m --disable-all \
+# Warning this tries to fix code
+
+exec golangci-lint run \
+    --fix \
+    --no-config \
+    --deadline=5m \
+    --timeout=30m \
+    --disable-all \
     --enable=bodyclose \
     --enable=deadcode \
     --enable=depguard \

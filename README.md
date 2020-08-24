@@ -2,6 +2,10 @@
 
 x commit hooks
 
+pre-commit hooks for current projects.
+
+**warning** some of these scripts are set to fix code.
+
 ## prereq
 
 installed
@@ -33,7 +37,7 @@ npm
 
 ```bash
 npm install markdownlint-cli
-npm install commitlint
+npm install @commitlint/cli @commitlint/config-conventional
 ```
 
 commitlint config
