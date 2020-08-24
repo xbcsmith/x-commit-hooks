@@ -36,22 +36,34 @@ npm install markdownlint-cli
 npm install commitlint
 ```
 
+commitlint config
+
+```bash
+echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitlint.config.js
+```
+
 shellcheck <https://github.com/koalaman/shellcheck>
 
 hadolint <https://github.com/hadolint/hadolint>
 
 ## usage
 
+generic
+
+```bash
+./scripts/x-generic-hooks.sh
+```
+
 go
 
 ```bash
-./scripts/go-hooks.sh
+./scripts/x-go-hooks.sh
 ```
 
 python
 
 ```bash
-./scripts/python-hooks.sh
+./scripts/x-python-hooks.sh
 ```
 
 ## tools

@@ -34,4 +34,3 @@ golangci-lint run --fix --no-config --deadline=5m --timeout=30m --disable-all \
     --enable=unused \
     --enable=varcheck \
     --enable=whitespace "${@}"
-

@@ -4,7 +4,7 @@ script=$(basename "$0")
 
 echo "running ${script}"
 
-if [[ ! -f ".pre-commit-config.yaml" ]];then
+if [[ -f ".pre-commit-config.yaml" ]];then
     echo "found .pre-commit-config.yaml ..."
     pre-commit autoupdate
     pre-commit run --all-files
