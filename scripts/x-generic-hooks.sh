@@ -37,6 +37,7 @@ repos:
       - id: markdownlint
       - id: yamllint
       - id: checkyml
+      - id: gitcheck
 
 EOF
 
