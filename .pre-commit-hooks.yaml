@@ -119,4 +119,10 @@
   entry: x-hook-checkyml.sh
   files: "\\.yml$"
   language: script
-  description: Checks for files with the .yml extension
+  description: "Checks for files with the .yml extension"
+- id: gitcheck
+  name: gitcheck
+  entry: x-hook-gitcheck.sh
+  files: ""
+  language: script
+  description: "Checks for conflict markers, core.whitespace errors, etc.."
