@@ -21,6 +21,7 @@ repos:
     hooks:
       - id: check-merge-conflict
       - id: check-yaml
+        args: [--allow-multiple-documents]
       - id: check-json
       - id: check-xml
       - id: check-symlinks
