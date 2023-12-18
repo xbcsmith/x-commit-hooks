@@ -5,12 +5,6 @@
   files: "\\.go$"
   language: script
   description: "Execs `gofmt`, requires golang"
-- id: goimports
-  name: goimports
-  entry: x-hook-goimports.sh
-  files: "\\.go$"
-  language: script
-  description: "Execs `goimports`, requires golang"
 - id: go-vet
   name: go vet
   entry: x-hook-go-vet.sh
@@ -18,20 +12,6 @@
   pass_filenames: false
   language: script
   description: "Execs `go vet`, requires golang"
-- id: golint
-  name: golint
-  entry: x-hook-golint.sh
-  files: "\\.go$"
-  language: script
-  description: "Execs `golint`, requires https://github.com/golang/lint"
-- id: gocyclo
-  name: gocyclo
-  entry: x-hook-gocyclo.sh
-  files: "\\.go$"
-  language: script
-  description: "Execs `gocyclo`, requires github.com/fzipp/gocyclo"
-  args:
-    - "-over=15"
 - id: golangci-lint
   name: golangci-lint
   entry: x-hook-golangci-lint.sh
@@ -48,12 +28,6 @@
   language: script
   pass_filenames: false
   description: "Execs `golangci-lint` with all flags"
-- id: gocritic
-  name: gocritic
-  entry: x-hook-gocritic.sh
-  files: "\\.go$"
-  language: script
-  description: "Execs `go-critic`, requires github.com/go-critic/go-critic"
 - id: go-unit-tests
   name: go-unit-tests
   entry: x-hook-go-unit-tests.sh
@@ -66,12 +40,6 @@
   files: "\\.go$"
   language: script
   description: "Execs `go build`, requires golang"
-- id: shellcheck
-  name: shellcheck
-  entry: x-hook-shellcheck.sh
-  files: "\\.sh$"
-  language: script
-  description: "Execs `shellcheck` -e SC2086 -e SC2016 $@, requires shellcheck"
 - id: commitlint
   name: commitlint
   entry: x-hook-commitlint.sh
@@ -108,12 +76,6 @@
   files: "\\.py$"
   language: script
   description: "Execs `flake8` --max-line-length=120 @, requires flake8"
-- id: hadolint
-  name: hadolint
-  entry: x-hook-hadolint.sh
-  files: Dockerfile.*
-  language: script
-  description: "Execs `hadolint`, requires https://github.com/hadolint/hadolint"
 - id: checkyml
   name: checkyml
   entry: x-hook-checkyml.sh
