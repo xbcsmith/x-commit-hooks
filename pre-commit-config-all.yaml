@@ -46,4 +46,3 @@ repos:
       - id: black
       - id: flake8
       - id: isort
-

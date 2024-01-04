@@ -7,7 +7,7 @@ USER root
 WORKDIR /home/xuser
 
 RUN set -e \
-    && useradd -r -g users -u 999 -m -d /home/xuser -s /bin/bash xuser \ 
+    && useradd -r -g users -u 999 -m -d /home/xuser -s /bin/bash xuser \
     && chown 999:100 /home/xuser
 
 ENV GOVERSION=1.21.5

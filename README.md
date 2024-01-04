@@ -31,8 +31,10 @@ curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/insta
 npm
 
 ```bash
-npm install markdownlint-cli
-npm install @commitlint/cli @commitlint/config-conventional
+npm install --save --save-exact @commitlint/cli @commitlint/config-conventional
+npm install --save --save-exact remark-cli remark-preset-lint-recommended
+npm install --save --save-exact markdownlint-cli
+npm install --save --save-exact prettier
 ```
 
 commitlint config
@@ -63,6 +65,34 @@ python
 
 ```bash
 ./scripts/x-python-hooks.sh
+```
+
+## install
+
+```bash
+./scripts/update.sh
+```
+
+## examples
+
+To use examples copy the best fit into the root of your project and edit as needed.
+
+all hooks:
+
+```bash
+cp pre-commit-config-all.yaml .pre-commit-config.yaml
+```
+
+go hooks:
+
+```bash
+cp pre-commit-config-go.yaml .pre-commit-config.yaml
+```
+
+python hooks:
+
+```bash
+cp pre-commit-config-python.yaml .pre-commit-config.yaml
 ```
 
 ## tools
