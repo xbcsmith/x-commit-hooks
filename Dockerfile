@@ -8,11 +8,13 @@ WORKDIR /home/xuser
 
 RUN set -e \
     && useradd -r -g users -u 999 -m -d /home/xuser -s /bin/bash xuser \
+    && mkdir -p /home/xuser/go \
     && chown 999:100 /home/xuser
 
 ENV GOVERSION=1.21.5
 ENV GOARCH=amd64
 ENV GOOS=linux
+ENV GOPATH=/home/xuser/go
 ENV GO_CHECKSUM=e2bc0b3e4b64111ec117295c088bde5f00eeed1567999ff77bc859d7df70078e
 
 RUN set -e \
@@ -21,6 +23,8 @@ RUN set -e \
     && tar -C /usr/local/ -xvzf go${GOVERSION}.${GOOS}-${GOARCH}.tar.gz \
     && PATH=/usr/local/go/bin:$PATH go version \
     && rm -v go${GOVERSION}.${GOOS}-${GOARCH}.tar.gz
+
+ENV PATH="${PATH}:/usr/local/go/bin"
 
 ENV GOLANGCI_LINT_VERSION="1.55.0"
 

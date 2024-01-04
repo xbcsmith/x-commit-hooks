@@ -95,6 +95,20 @@ python hooks:
 cp pre-commit-config-python.yaml .pre-commit-config.yaml
 ```
 
+## docker image
+
+build:
+
+```bash
+docker build -t x-commit-hooks:local .
+```
+
+usage:
+
+```bash
+docker run -it -v $(pwd):/src:rw,z x-commit-hooks:local x-generic-hooks.sh
+```
+
 ## tools
 
 - <https://github.com/pre-commit/pre-commit>
