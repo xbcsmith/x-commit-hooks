@@ -75,25 +75,12 @@ python
 
 ## examples
 
-To use examples copy the best fit into the root of your project and edit as needed.
+To use an example pre-commit config copy the best fit into the root of your
+project as `.pre-commit-config.yaml` and edit as needed.
 
-all hooks:
-
-```bash
-cp pre-commit-config-all.yaml .pre-commit-config.yaml
-```
-
-go hooks:
-
-```bash
-cp pre-commit-config-go.yaml .pre-commit-config.yaml
-```
-
-python hooks:
-
-```bash
-cp pre-commit-config-python.yaml .pre-commit-config.yaml
-```
+- All hooks: [pre-commit-config-all.yaml](./pre-commit-config-all.yaml)
+- Golang hooks: [pre-commit-config-go.yaml](./pre-commit-config-go.yaml)
+- Python hooks: [pre-commit-config-python.yaml](./pre-commit-config-python.yaml)
 
 ## docker image
 
