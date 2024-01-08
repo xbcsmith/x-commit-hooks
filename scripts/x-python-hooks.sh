@@ -17,7 +17,7 @@ cat > .pre-commit-config.yaml << EOF
 ---
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v2.3.0
+    rev: v4.5.0
     hooks:
       - id: check-merge-conflict
       - id: check-yaml
@@ -27,7 +27,7 @@ repos:
       - id: check-symlinks
       - id: check-added-large-files
       - id: check-executables-have-shebangs
-      - id: check-byte-order-marker
+      - id: fix-byte-order-marker
       - id: end-of-file-fixer
       - id: trailing-whitespace
       - id: mixed-line-ending
@@ -38,7 +38,7 @@ repos:
       - id: double-quote-string-fixer
       - id: fix-encoding-pragma
   - repo: https://github.com/pre-commit/pygrep-hooks
-    rev: v1.5.1
+    rev: v1.10.0
     hooks:
       - id: python-use-type-annotations
       - id: python-check-blanket-noqa
@@ -54,7 +54,6 @@ repos:
       - id: black
       - id: flake8
       - id: isort
-      - id: shellcheck
       - id: commitlint
       - id: markdownlint
       - id: yamllint

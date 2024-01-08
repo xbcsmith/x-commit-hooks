@@ -34,11 +34,15 @@ repos:
   - repo: "https://github.com/xbcsmith/x-commit-hooks"
     rev: master
     hooks:
-      - id: black
-      - id: flake8
-      - id: isort
+      - id: go-fmt
+      - id: go-vet
+      - id: golangci-lint
+      - id: golangci-megalint
+      - id: go-unit-tests
       - id: yamllint
       - id: commitlint
       - id: markdownlint
-      - id: shellcheck
       - id: checkyml
+      - id: black
+      - id: flake8
+      - id: isort
