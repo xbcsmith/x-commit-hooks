@@ -1,6 +1,11 @@
 ---
+# Pre-commit configuration for Rust projects
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+
 repos:
-  - repo: "https://github.com/pre-commit/pre-commit-hooks"
+  # General hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
     hooks:
       - id: check-merge-conflict
@@ -16,16 +21,11 @@ repos:
       - id: trailing-whitespace
       - id: mixed-line-ending
       - id: detect-private-key
+  # Rust Hooks
   - repo: "https://github.com/xbcsmith/x-commit-hooks"
     rev: main
     hooks:
-      - id: go-fmt
-      - id: go-vet
-      - id: golangci-lint
-      - id: golangci-megalint
-      - id: go-unit-tests
-      - id: yamllint
-      - id: commitlint
-      - id: markdownlint
-      - id: shellcheck
-      - id: checkyml
+      - id: cargo-check
+      - id: cargo-clippy
+      - id: cargo-fmt
+      - id: cargo-test

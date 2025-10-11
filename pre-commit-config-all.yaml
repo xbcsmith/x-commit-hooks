@@ -1,10 +1,11 @@
 ---
 repos:
   - repo: "https://github.com/pre-commit/pre-commit-hooks"
-    rev: v4.5.0
+    rev: v6.0.0
     hooks:
       - id: check-merge-conflict
       - id: check-yaml
+        args: [--allow-multiple-documents]
       - id: check-json
       - id: check-xml
       - id: check-symlinks
@@ -32,7 +33,7 @@ repos:
       - id: rst-backticks
       - id: text-unicode-replacement-char
   - repo: "https://github.com/xbcsmith/x-commit-hooks"
-    rev: master
+    rev: main
     hooks:
       - id: go-fmt
       - id: go-vet
@@ -43,6 +44,8 @@ repos:
       - id: commitlint
       - id: markdownlint
       - id: checkyml
-      - id: black
-      - id: flake8
-      - id: isort
+      - id: ruff
+      - id: cargo-check
+      - id: cargo-clippy
+      - id: cargo-fmt
+      - id: cargo-test

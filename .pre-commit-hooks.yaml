@@ -58,24 +58,12 @@
   files: "\\.md$"
   language: script
   description: "Execs `markdownlint` --fix @, requires markdownlintcli"
-- id: black
-  name: black
-  entry: x-hook-black.sh
+- id: ruff
+  name: ruff
+  entry: x-hook-ruff.sh
   files: "\\.py$"
   language: script
-  description: "Execs `black` --line-length=120 @, requires black"
-- id: isort
-  name: isort
-  entry: x-hook-isort.sh
-  files: "\\.py$"
-  language: script
-  description: "Execs `isort` --atomic --apply --recursive  @, requires isort"
-- id: flake8
-  name: flake8
-  entry: x-hook-flake8.sh
-  files: "\\.py$"
-  language: script
-  description: "Execs `flake8` --max-line-length=120 @, requires flake8"
+  description: "Execs ruff, requires black"
 - id: checkyml
   name: checkyml
   entry: x-hook-checkyml.sh
@@ -87,4 +75,38 @@
   entry: x-hook-gitcheck.sh
   files: ""
   language: script
+  pass_filenames: false
   description: "Checks for conflict markers, core.whitespace errors, etc.."
+- id: rust
+  name: rust
+  entry: x-hook-rust.sh
+  language: script
+  files: \.rs$
+  description: "Runs all the cargo commands..."
+- id: cargo-check
+  name: cargo check
+  entry: cargo check
+  language: system
+  files: \.rs$
+  pass_filenames: false
+- id: cargo-clippy
+  name: cargo clippy
+  entry: cargo clippy
+  language: system
+  args: [--all-targets, --all-features, --, -D, warnings]
+  files: \.rs$
+  pass_filenames: false
+- id: cargo-fmt
+  name: cargo fmt
+  entry: cargo fmt
+  language: system
+  args: [--all, --]
+  files: \.rs$
+  pass_filenames: false
+- id: cargo-test
+  name: cargo test
+  entry: cargo test
+  language: system
+  args: [--all-features]
+  files: \.rs$
+  pass_filenames: false

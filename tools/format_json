@@ -2,11 +2,11 @@
 
 for FILE in $@;do
     filename="$(basename $FILE)"
-    if [[ $FILE =~ \.yaml$ ]] || [[ $FILE =~ \.yml$ ]];then
+    if [[ $FILE =~ \.json$ ]] || [[ $FILE =~ \.jsn$ ]];then
         echo "Formatting : ${filename}"
         # prettier --write "${FILE}"
         prettier --write --list-different --ignore-unknown ${FILE}
     else
-        echo "Skipping : ${filename} is NOT a yaml file"
+        echo "Skipping : ${filename} is NOT a JSON file"
     fi
 done

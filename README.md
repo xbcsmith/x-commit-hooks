@@ -19,7 +19,7 @@ python
 ```bash
 pip install --user pre-commit
 pip install --user yamllint
-pip install --user black flake8 isort
+pip install --user ruff
 ```
 
 go

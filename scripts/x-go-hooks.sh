@@ -17,7 +17,7 @@ cat > .pre-commit-config.yaml << EOF
 ---
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.5.0
+    rev: v6.0.0
     hooks:
       - id: check-merge-conflict
       - id: check-yaml
@@ -31,7 +31,7 @@ repos:
       - id: mixed-line-ending
       - id: detect-private-key
   - repo: https://github.com/xbcsmith/x-commit-hooks
-    rev: master
+    rev: main
     hooks:
       - id: go-fmt
       - id: go-vet
