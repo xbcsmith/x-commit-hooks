@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+# Create temporary .markdownlint.json if absent
+temp_created=0
+if [ ! -f .markdownlint.json ]; then
+    cat > .markdownlint.json <<'EOF'
+{
+  "default": true,
+  "line-length": {
+    "code_blocks": false,
+    "tables": false,
+    "headings": false
+  },
+  "MD026": {
+    "punctuation": ".,;:!。，；：！？"
+  },
+  "MD025": false,
+  "MD024": false,
+  "MD033": false,
+  "MD036": false,
+  "MD059": false
+}
+EOF
+    temp_created=1
+fi
+
+for FILE in $@;do
+    filename="$(basename $FILE)"
+    if [[ $FILE =~ \.md$ ]];then
+        echo "Linting : ${filename}"
+        markdownlint --fix --config .markdownlint.json "${FILE}"
+        echo "Formatting : ${filename}"
+        prettier --write --parser markdown --prose-wrap always "${FILE}"
+    else
+        echo "Skipping : ${filename} is NOT a markdown file"
+    fi
+done
+
+# Remove temporary .markdownlint.json if we created it
+if [ "$temp_created" -eq 1 ]; then
+    rm -vf .markdownlint.json
+fi

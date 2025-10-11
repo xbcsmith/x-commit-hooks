@@ -16,6 +16,7 @@ echo "no config found ... creating .pre-commit-config.yaml"
 cat > .pre-commit-config.yaml << EOF
 ---
 repos:
+  # General hooks
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
     hooks:
@@ -32,31 +33,14 @@ repos:
       - id: trailing-whitespace
       - id: mixed-line-ending
       - id: detect-private-key
-      - id: check-ast
-      - id: name-tests-test
-      - id: requirements-txt-fixer
-      - id: double-quote-string-fixer
-      - id: fix-encoding-pragma
-  - repo: https://github.com/pre-commit/pygrep-hooks
-    rev: v1.10.0
-    hooks:
-      - id: python-use-type-annotations
-      - id: python-check-blanket-noqa
-      - id: python-check-mock-methods
-      - id: python-no-eval
-      - id: python-no-log-warn
-      - id: python-use-type-annotations
-      - id: rst-backticks
-      - id: text-unicode-replacement-char
-  - repo: https://github.com/xbcsmith/x-commit-hooks
+  # Rust Hooks
+  - repo: "https://github.com/xbcsmith/x-commit-hooks"
     rev: main
     hooks:
-      - id: ruff
-      - id: commitlint
-      - id: markdownlint
-      - id: yamllint
-      - id: checkyml
-      - id: gitcheck
+      - id: cargo-check
+      - id: cargo-clippy
+      - id: cargo-fmt
+      - id: cargo-test
 
 EOF
 

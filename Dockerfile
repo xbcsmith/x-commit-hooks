@@ -63,9 +63,7 @@ RUN set -e \
     && pip3 install --upgrade \
         pre-commit \
         yamllint \
-        black \
-        isort \
-        flake8 \
+        ruff \
         tox \
         pip \
         wheel \
