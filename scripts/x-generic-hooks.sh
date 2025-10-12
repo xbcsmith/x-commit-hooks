@@ -26,6 +26,7 @@ repos:
       - id: check-xml
       - id: check-symlinks
       - id: check-added-large-files
+        stages: [commit]
       - id: end-of-file-fixer
       - id: trailing-whitespace
       - id: mixed-line-ending

@@ -27,6 +27,7 @@ repos:
       - id: check-xml
       - id: check-symlinks
       - id: check-added-large-files
+        stages: [commit]
       - id: check-executables-have-shebangs
       - id: fix-byte-order-marker
       - id: end-of-file-fixer
