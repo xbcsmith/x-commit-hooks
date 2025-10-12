@@ -16,7 +16,7 @@ repos:
       - id: mixed-line-ending
       - id: detect-private-key
   - repo: https://github.com/xbcsmith/x-commit-hooks
-    rev: v0.2.0
+    rev: v0.2.1
     hooks:
       - id: commitlint
       - id: markdownlint
