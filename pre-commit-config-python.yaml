@@ -21,7 +21,6 @@ repos:
       - id: name-tests-test
       - id: requirements-txt-fixer
       - id: double-quote-string-fixer
-      - id: fix-encoding-pragma
   - repo: "https://github.com/pre-commit/pygrep-hooks"
     rev: v1.10.0
     hooks:

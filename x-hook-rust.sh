@@ -68,11 +68,22 @@ else
 fi
 
 # 4. Run tests
-print_status "Running cargo test..."
-if ! cargo test --all-features; then
-    print_error "Tests failed"
-    exit 1
+# 4. Run tests
+if command -v cargo-nextest &> /dev/null; then
+    print_status "Running cargo nextest run (nextest detected)..."
+    if ! cargo nextest run --all-features; then
+        print_error "Tests failed (nextest)"
+        exit 1
+    fi
+else
+    print_status "cargo nextest not found; falling back to cargo test..."
+    print_status "Running cargo test..."
+    if ! cargo test --all-features; then
+        print_error "Tests failed"
+        exit 1
+    fi
 fi
+
 
 # 5. Check for security vulnerabilities (if cargo-audit is available)
 if cargo audit --version &> /dev/null; then

@@ -110,3 +110,17 @@
   args: [--all-features]
   files: \.rs$
   pass_filenames: false
+- id: cargo-nextest
+  name: cargo nextest
+  entry: cargo nextest
+  language: system
+  args: [run, --all-features]
+  files: \.rs$
+  pass_filenames: false
+- id: cargo-test-doc
+  name: cargo test --doc
+  entry: cargo test --doc
+  language: system
+  args: [--all-features]
+  files: \.rs$
+  pass_filenames: false
